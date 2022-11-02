@@ -1,4 +1,4 @@
-project(HOMEWORK_4_LIB)
+project(HOMEWORK_4_LIB LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 11)
 
 set(SHARED_TARGET "homework_4_shared")

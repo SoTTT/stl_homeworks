@@ -1,6 +1,10 @@
+#ifdef __GNUC__
+
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "Simplify"
 #pragma once
+
+#endif
 
 #include <type_traits>
 #include <iostream>
@@ -12,6 +16,10 @@
 #include <cstdio>
 #include <memory>
 #include <algorithm>
+
+#ifndef __cpp_lib_void_t
+template<typename ...> using void_t = void;
+#endif
 
 namespace so {
     using std::void_t;
@@ -28,7 +36,7 @@ namespace so {
 
     namespace to_string_ns {
         template<typename T, typename char_t>
-        std::basic_string<char_t> to_string(const T &value, const char *format = nullptr) {
+        std::basic_string<char_t> to_string(const T &value,  const char *format = nullptr) {
             static_assert(sizeof(char_t) != sizeof(char_t), "This template cannot be instantiated");
             return std::basic_string<char_t>{};
         }
@@ -59,7 +67,7 @@ namespace so {
 
         template<>
         inline std::string
-        to_string<std::string, std::string::value_type>(const std::string &value, const char *format) {
+        to_string<std::string, std::string::value_type>(const std::string &value,const char *format) {
             return value;
         }
 
@@ -251,4 +259,6 @@ namespace so {
     }
 }
 
+#ifdef __GNUC__
 #pragma clang diagnostic pop
+#endif
