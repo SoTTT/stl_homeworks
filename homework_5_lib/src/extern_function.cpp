@@ -49,8 +49,8 @@ void basic_string_operate() {
     new_str = str.insert(5, "ssss");
     cout << "insert string in str:" << new_str << endl;
     new_str = str;
-    //new_str.erase(std::remove(str.begin(), str.end(), 'a'), new_str.end());
-    cout << "remove all 'a' character in str: " << new_str << endl;
+    new_str.erase(std::remove(new_str.begin(), new_str.end(), 'a'), new_str.end());
+    cout << "remove 'a' character in str: " << new_str << endl;
 }
 
 void homework_5_execute() {

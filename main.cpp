@@ -7,6 +7,6 @@
 
 
 int main() {
-    homework_5_execute();
+    homework_7_execute();
     return 0;
 }
